@@ -21,8 +21,8 @@ The dashboard supports **two languages (English & Persian)** and allows users to
 ---
 
 ## 🚀 Online Demos
-- **Streamlit Cloud:** [🔗 Live Demo](...your-streamlit-link...)  
-- **Hugging Face (Dockerized):** [🐳 Live Demo](...your-hugging-face-link...)
+- **Streamlit Cloud:** [🔗 Live Demo](https://fooddeliverydashboard-h3mgtzznzknyv77jablvpj.streamlit.app/)  
+- **Hugging Face (Dockerized):** [🐳 Live Demo](https://huggingface.co/spaces/amin704/food-delivery-dashboard)
 
 ---
 
