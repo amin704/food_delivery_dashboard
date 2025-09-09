@@ -229,7 +229,6 @@ with st.container(border=True):
     key='language_selector',  #  This key is essential
     on_change=update_language  # This callback handles the update
 )
-    # st.session_state.lang = lang_options[selected_lang_name]
 
     
 
