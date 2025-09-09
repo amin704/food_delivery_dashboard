@@ -135,8 +135,9 @@ translations = {
     }
 }
 
-if 'lang' not in st.session_state:
-    st.session_state.lang = 'fa'
+
+
+
 
 def t(key):
     return translations.get(st.session_state.lang, {}).get(key, key)
@@ -147,6 +148,12 @@ def make_farsi_text(text):
     return str(text)
 
 st.set_page_config(page_title="Food Delivery Dashboard", layout="centered")
+
+def update_language():
+    # This function reads the new value from the radio widget (using its key)
+    # and updates the 'lang' in session_state immediately.
+    st.session_state.lang = lang_options[st.session_state.language_selector]
+
 
 # Global and Font Styles
 st.markdown(
@@ -164,6 +171,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+
+lang_options = {"فارسی": "fa", "English": "en"}
+
+if 'lang' not in st.session_state:
+    st.session_state.lang = 'fa'
+    st.session_state.language_selector = 'فارسی' 
+    
+    
 # Language-specific Directional Styles
 
 if st.session_state.lang == 'fa':
@@ -205,14 +220,17 @@ with st.container(border=True):
     with col2:
         lang_options = {"فارسی": "fa", "English": "en"}
         current_lang_index = list(lang_options.values()).index(st.session_state.lang)
-        selected_lang_name = st.radio(
-            "",
-            options=list(lang_options.keys()),
-            label_visibility="collapsed",
-            horizontal=True,
-            index=current_lang_index
-        )
-        st.session_state.lang = lang_options[selected_lang_name]
+    selected_lang_name = st.radio(
+    "",
+    options=list(lang_options.keys()),
+    label_visibility="collapsed",
+    horizontal=True,
+    # index=current_lang_index,
+    key='language_selector',  #  This key is essential
+    on_change=update_language  # This callback handles the update
+)
+    # st.session_state.lang = lang_options[selected_lang_name]
+
     
 
 
